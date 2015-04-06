@@ -1,4 +1,4 @@
-package sample;
+package com.cisco.skyfall;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

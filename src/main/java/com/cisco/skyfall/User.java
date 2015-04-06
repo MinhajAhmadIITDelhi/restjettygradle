@@ -1,4 +1,4 @@
-package sample;
+package com.cisco.skyfall;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
