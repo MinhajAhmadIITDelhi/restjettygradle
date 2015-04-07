@@ -1,4 +1,4 @@
-package com.cisco.skyfall;
+/*package com.cisco.skyfall;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -32,3 +32,4 @@ public class HelloService {
     }
 }
 
+*/
