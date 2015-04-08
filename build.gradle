@@ -11,11 +11,6 @@ apply plugin: 'java'
 apply plugin: 'jetty'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
-//apply plugin: 'war'
-//jar {
-//    baseName = 'gs-rest-service'
-//    version =  '0.1.0'
-//}
 
 
 repositories {
@@ -29,14 +24,14 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-jetty")
     
     compile(
-       // ['com.sun.jersey:jersey-bundle:1.17.1'],
-        //['asm:asm:3.1'],
-        ['com.fasterxml.jackson.core:jackson-databind:2.0.1'],
+        ['com.fasterxml.jackson.core:jackson-databind:2.5.0'],
+        ['com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.5.0'],
         ['org.springframework.data:spring-data-commons:1.9.1.RELEASE'],
-        ['org.springframework.security:spring-security-config:3.2.0.RELEASE']
-       
+        ['org.springframework.boot:spring-boot-starter-actuator'],
+        ['org.springframework.boot:spring-boot-starter-aop'],
+        ['org.springframework.boot:spring-boot-starter-security']
     )
-
+    
 }
 jettyRunWar {
    contextPath = "service"
