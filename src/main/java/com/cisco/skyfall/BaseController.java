@@ -1,9 +1,24 @@
 package com.cisco.skyfall;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import javax.servlet.http.HttpServletRequest;
 
-@RestController
-@RequestMapping(value = "/", produces = { "application/json", "application/xml" })
-public interface BaseController {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cisco.skyfall.exception.KeywordNotFoundException;
+import com.cisco.skyfall.response.ErrorDetail;
+
+@RequestMapping(value="/", produces = { "application/json", "application/xml" })
+public abstract class BaseController {
+	
+	@ExceptionHandler(KeywordNotFoundException.class)
+	public ErrorDetail myError(HttpServletRequest request, Exception exception) {
+	    ErrorDetail error = new ErrorDetail();
+	    error.setStatus(HttpStatus.BAD_REQUEST.value());
+	    error.setMessage(exception.getLocalizedMessage());
+	    error.setUrl(request.getRequestURL().append("/error/111").toString());
+	    return error;
+	}
+	
 }
