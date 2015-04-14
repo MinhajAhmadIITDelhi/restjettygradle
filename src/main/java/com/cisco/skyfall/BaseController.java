@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.cisco.skyfall.exception.KeywordNotFoundException;
 import com.cisco.skyfall.response.ErrorDetail;
 
-@RequestMapping(value="/", produces = { "application/json", "application/xml" })
+@RequestMapping(value="/api", produces = { "application/json", "application/xml" })
 public abstract class BaseController {
 	
 	@ExceptionHandler(KeywordNotFoundException.class)
