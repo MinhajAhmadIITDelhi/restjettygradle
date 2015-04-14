@@ -25,14 +25,10 @@ public class PersonController extends BaseController {
 		return response;
 	}
 	
-	
 	@RequestMapping(value = "/person")
 	public ResponseEntity<?> getPersonDetail(@RequestParam(value="key") Integer key) {
 		Person p = personService.getPersonDetail(key);
-		ResponseEntity<?> response = new ResponseEntity<>(p, HttpStatus.OK); 
 		throw new KeywordNotFoundException(key.toString());
 	}
-	
-	
 	
 }
